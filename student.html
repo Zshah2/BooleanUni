@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Boolean University</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">BU</div>
+                <div class="header-info">
+                    <h1>Student Dashboard</h1>
+                    <p>Boolean University Portal</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="welcome-text">Welcome, <span id="studentName">John Smith</span></span>
+                    <span class="student-id">ID: <span id="studentId">STU001</span></span>
+                </div>
+  <button type="button" class="logout-btn" onclick="logout()">
+  <i class="fas fa-sign-out-alt"></i> Logout
+</button>>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            
+            <!-- Quick Stats -->
+            <section class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3.75</h3>
+                        <p>Current GPA</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>67/120</h3>
+                        <p>Credits Completed</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>Current Courses</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Due This Week</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Left Column -->
+                <div class="left-column">
+                    
+                    <!-- Current Courses -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-book-open"></i> Current Courses</h2>
+                            <button class="view-all-btn" onclick="goToCatalog()">Browse Catalog</button>
+                        </div>
+                        <div class="courses-list">
+                            <div class="empty-state">
+                                <i class="fas fa-book-open"></i>
+                                <h3>No Courses Registered</h3>
+                                <p>You haven't registered for any courses yet. Browse our course catalog to find classes that interest you.</p>
+                                <button class="primary-btn" onclick="goToCatalog()">Browse Course Catalog</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Grades -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-line"></i> Recent Grades</h2>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="grades-list">
+                            <div class="empty-state">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>No Grades Available</h3>
+                                <p>Your grades will appear here once you register for courses and complete assignments.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    
+                    <!-- Upcoming Assignments -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-calendar-check"></i> Upcoming Assignments</h2>
+                        </div>
+                        <div class="assignments-list">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-check"></i>
+                                <h3>No Assignments</h3>
+                                <p>You don't have any assignments yet. Register for courses to see upcoming assignments and deadlines.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Messages -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-envelope"></i> Recent Messages</h2>
+                            <button class="view-all-btn">Inbox</button>
+                        </div>
+                        <div class="messages-list">
+                            <div class="message-item unread">
+                                <div class="message-sender">
+                                    <div class="sender-avatar">DJ</div>
+                                    <div class="sender-info">
+                                        <h4>Dr. Johnson</h4>
+                                        <span class="message-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <p class="message-preview">Regarding your midterm exam performance...</p>
+                            </div>
+                            
+                            <div class="message-item">
+                                <div class="message-sender">
+                                    <div class="sender-avatar">AA</div>
+                                    <div class="sender-info">
+                                        <h4>Academic Advisor</h4>
+                                        <span class="message-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <p class="message-preview">Course registration opens next week...</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Quick Actions -->
+                    <section class="dashboard-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Register for Courses</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-file-download"></i>
+                                <span>Download Transcript</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Pay Tuition</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Contact Support</span>
+                            </button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
